@@ -1,19 +1,27 @@
-import {motion} from "motion/react";
-import "./App.css";
+import { motion, AnimatePresence,LazyMotion, domAnimation, m } from "motion/react";
+import { useState } from "react";
 
-function App(){
 
-  return(
-    <motion.div
-    
-    initial={{opacity:0,y:-50}}
-    animate={{opacity:1,y:0}}
-    transition={{duration:1}}
-    className="w-40 h-40 bg-green-500 rounded-lg flex items-center justify-center text-white text-lg"
-    >
-    Hello Framer Motion
-    </motion.div>
-  )
+
+function App() {
+  const [isOpen, setisOpen] = useState(true);
+
+
+  return (
+    <div>
+      <LazyMotion features={domAnimation}>
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="box"
+      >
+        Hello LazyMotion!
+      </m.div>
+    </LazyMotion>
+    </div>
+  );
+
 
 }
 
